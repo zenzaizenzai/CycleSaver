@@ -180,7 +180,7 @@ export const Scanner: React.FC<ScannerProps> = ({ userId, defaultRegion, onClose
                {isAnalyzing ? (
                  <div className="flex flex-col items-center justify-center py-8">
                    <Loader2 className="w-8 h-8 text-brand-600 animate-spin mb-3" />
-                   <p className="text-slate-600">AIが番号を解析中...</p>
+                   <p className="text-slate-600">端末内で解析中...</p>
                  </div>
                ) : (
                  <div className="space-y-4">
