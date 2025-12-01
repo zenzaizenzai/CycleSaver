@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  # mainブランチへのプッシュをトリガーとする
+  push:
+    branches:
+      - main
+  # Actionsタブから手動で実行できるようにする
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        # package.jsonで定義されているビルドコマンドを実行
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        # ビルド成果物をgh-pagesブランチにデプロイするアクション
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
