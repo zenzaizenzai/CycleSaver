@@ -1,0 +1,8 @@
+{
+  "name": "CycleGuard",
+  "description": "A civic-tech application for citizens to report abandoned bicycles, featuring AI-based OCR for registration numbers and a gamified reward system.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
