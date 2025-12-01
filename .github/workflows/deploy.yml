@@ -8,6 +8,10 @@ on:
   # Actionsタブから手動で実行できるようにする
   workflow_dispatch:
 
+    # 💡 ここに新しい設定を追加します
+permissions:
+  contents: write # リポジトリへの書き込み権限を許可
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
